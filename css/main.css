@@ -2,30 +2,39 @@
  *
  * Main stylesheet for login page of 75
  */
+ html{
+	 margin: 0;
+	 padding: 0;
+ }
  body{
 	background: url(https://source.unsplash.com/random) grey no-repeat;
 	background-size: cover;
+	padding: 0;
+	margin: 0;
+	height: 100vh;
+	width: 100vw;
  }
- .mainbox{
-	width: 30%;
-	margin-left: 35%;
+.mainbox{
+	width: 350px;
 	height: 200px;
-	font-family: sans-serif;
-	color: teal;
-	border-radius: 15px;
-	background-color: rgba(255, 255, 255, 0.1);
-	-webkit-backdrop-filter: blur(10px);
 	position: absolute;
 	top: 50%;
+	left: 50%;
+	margin-left: -175px;
 	margin-top: -100px;
+	font-family: sans-serif;
+	color: teal;
+	border-radius: 35px;
+	background-color: rgba(255, 255, 255, 0.1);
+	-webkit-backdrop-filter: blur(10px);
 	padding: 20px 0 20px 0;
- }
- .title{
+}
+.title{
 	padding: 0;
 	margin-top: 0;
 	text-align: center;
- }
- .mainbox input{
+}
+.mainbox input{
 	box-sizing: border-box;
 	width: 80%;
 	margin: 0;
@@ -43,27 +52,28 @@
 	padding-right: 20px;
 	-webkit-transition: background 0.5s;
 	transition: background 0.5s;
- }
- .mainbox input[type=text]:focus, .mainbox input[type=password]:focus{
-	background-color: rgba(0, 128, 128, 0.3);
-	-webkit-backdrop-filter: blur(10px);
-	color: white;
-	border: transparent;
- }
- .mainbox input[type=submit]{
+}
+.mainbox input[type=text]:focus, .mainbox input[type=password]:focus{
 	background-color: rgba(0, 128, 128, 0.3);
 	-webkit-backdrop-filter: blur(10px);
 	color: white;
 	border: transparent;
 }
- .mainbox input[type=submit]:hover{
+.mainbox input[type=submit]{
+	background-color: rgba(0, 128, 128, 0.3);
+	-webkit-backdrop-filter: blur(10px);
+	color: white;
+	border: transparent;
+	box-shadow: none;
+}
+.mainbox input[type=submit]:hover{
 	cursor: pointer;
 	background-color: rgba(0, 128, 128, 0.7);
 	-webkit-backdrop-filter: blur(10px);
- }
- ::-webkit-input-placeholder {
+}
+::-webkit-input-placeholder {
 	color: rgba(0, 78, 78, 0.3);
- }
- ::-moz-placeholder {
+}
+::-moz-placeholder {
 	color: rgba(0, 78, 78, 0.3);
- }
+}
