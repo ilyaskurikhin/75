@@ -3,49 +3,67 @@
  * Main stylesheet for login page of 75
  */
  body{
-   background: url(https://source.unsplash.com/random) no-repeat;
-   background-size: cover;
+	background: url(https://source.unsplash.com/random) grey no-repeat;
+	background-size: cover;
  }
  .mainbox{
-   width: 30%;
-   margin-left: 35%;
-   height: 200px;
-   font-family: sans-serif;
-   color: rgb(245, 90, 90);
-   border-radius: 15px;
-   background-color: rgba(255, 255, 255, 0.1);
-   -webkit-backdrop-filter: blur(10px);
-   position: absolute;
-   top: 50%;
-   margin-top: -100px;
+	width: 30%;
+	margin-left: 35%;
+	height: 200px;
+	font-family: sans-serif;
+	color: teal;
+	border-radius: 15px;
+	background-color: rgba(255, 255, 255, 0.1);
+	-webkit-backdrop-filter: blur(10px);
+	position: absolute;
+	top: 50%;
+	margin-top: -100px;
+	padding: 20px 0 20px 0;
  }
  .title{
-   padding: 0;
-   padding-top: 10px;
-   margin-top: 0;
-   text-align: center;
+	padding: 0;
+	margin-top: 0;
+	text-align: center;
  }
  .mainbox input{
-   box-sizing: border-box;
-   width: 80%;
-   margin: 0;
-   margin-bottom: 5px;
-   margin-left: 10%;
-   color: rgb(245, 90, 90);
-   outline: none;
-   height: 30px;
-   border: 1px solid;
-   border-radius: 15px;
-   background: transparent;
-   line-height: 25px;
-   padding-left: 10px;
+	box-sizing: border-box;
+	width: 80%;
+	margin: 0;
+	margin-bottom: 5px;
+	margin-left: 10%;
+	color: white;
+	outline: none;
+	height: 40px;
+	border: 1px solid teal;
+	border-radius: 20px;
+	background: transparent;
+	line-height: 25px;
+	font-size: 20px;
+	padding-left: 20px;
+	padding-right: 20px;
+	-webkit-transition: background 0.5s;
+	transition: background 0.5s;
  }
+ .mainbox input[type=text]:focus, .mainbox input[type=password]:focus{
+	background-color: rgba(0, 128, 128, 0.3);
+	-webkit-backdrop-filter: blur(10px);
+	color: white;
+	border: transparent;
+ }
+ .mainbox input[type=submit]{
+	background-color: rgba(0, 128, 128, 0.3);
+	-webkit-backdrop-filter: blur(10px);
+	color: white;
+	border: transparent;
+}
  .mainbox input[type=submit]:hover{
-   cursor: pointer;
+	cursor: pointer;
+	background-color: rgba(0, 128, 128, 0.7);
+	-webkit-backdrop-filter: blur(10px);
  }
  ::-webkit-input-placeholder {
-   color: rgb(245, 90, 90);
+	color: rgba(0, 78, 78, 0.3);
  }
  ::-moz-placeholder {
-   color:rgb(245, 90, 90);
+	color: rgba(0, 78, 78, 0.3);
  }

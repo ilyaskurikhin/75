@@ -1,18 +1,27 @@
-<?php session_start()
-	// $connection = mysqli_connect("localhost", "moriarty", "mogneHavcocoj", "moriarty_75");
-	// $_SESSION['loggedIn'] = false;
-	//
-	// if (isset($_POST)) {
-	// 	if ($_POST['username'] != "" && $_POST['password'] != "") {
-	// 		$empty = false;
-	// 		$username = $_POST['username'];
-	// 		$password = $_POST['password'];
-	// 		$hashed_password = hash('sha265', $password);
-	// 	} else {
-	// 		$empty = true;
-	// 	}
-	// }
-
+<?php session_start();
+	$connection = mysqli_connect("localhost", "moriarty", "mogneHavcocoj", "moriarty_75");
+	$_SESSION['loggedIn'] = false;
+	$empty = true;
+	if (isset($_POST)) {
+		if ($_POST['username'] != "" && $_POST['password'] != "") {
+			$username = $_POST['username'];
+			$password = hash('sha256', $_POST['password']);
+			$query = "SELECT users FROM main WHERE users = ? AND pw = ?";
+			$stmt = mysqli_prepare($connection, $query);
+			mysqli_stmt_bind_param($stmt, "ss", $username, $password);
+			mysqli_stmt_execute($stmt);
+			mysqli_stmt_store_result($stmt);
+			if (mysqli_stmt_num_rows($stmt) == 1) {
+				//header('Location: dashboard.php'); // replace filename with future "home" site
+				$_SESSION['loggedin'] = true;
+				echo "successfully logged in!<br>";
+			} else {
+				echo "Wrong password or username.<br>";
+			}
+			mysqli_stmt_close($stmt);
+			mysqli_close($connection);
+		}
+	}
 ?>
 <!DOCTYPE html>
 <html>
@@ -31,7 +40,7 @@
 		<form class="" action="index.php" method="post">
 			<input type="text" name="username" placeholder="username"/>
 		  	<input type="password" name="password" placeholder="password"/>
-		  	<input type="submit" value="Login"/>
+		  	<input type="submit" name="submit" value="Login"/>
 		</form>
 	</div>
 </body>
