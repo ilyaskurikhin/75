@@ -3,6 +3,7 @@ require 'json'
 require 'git'
 require 'rubygems'
 
+set :port, 61445
 
 post '/payload' do
   push = JSON.parse(request.body.read)
