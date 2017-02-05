@@ -1,5 +1,4 @@
 <?php session_start();
-	echo "live";
 	$connection = mysqli_connect("localhost", "moriarty", "mogneHavcocoj", "moriarty_75");
 	$_SESSION['loggedIn'] = false;
 	$empty = true;
@@ -29,6 +28,7 @@
 <head>
 	<title> Login 75 </title>
 	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<!-- Stylesheet link -->
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 
