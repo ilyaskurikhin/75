@@ -1,7 +1,6 @@
 <?php session_start();
 	$connection = mysqli_connect("localhost", "moriarty", "mogneHavcocoj", "moriarty_75");
 	$_SESSION['loggedIn'] = false;
-	$empty = true;
 	if (isset($_POST)) {
 		if ($_POST['username'] != "" && $_POST['password'] != "") {
 			$username = $_POST['username'];
@@ -12,9 +11,9 @@
 			mysqli_stmt_execute($stmt);
 			mysqli_stmt_store_result($stmt);
 			if (mysqli_stmt_num_rows($stmt) == 1) {
-				//header('Location: dashboard.php'); // replace filename with future "home" site
 				$_SESSION['loggedin'] = true;
-				echo "successfully logged in!<br>";
+				$_SESSION['username'] = $username;
+				header('Location: dashboard.php'); // replace filename with future "home" site
 			} else {
 				echo "Wrong password or username.<br>";
 			}

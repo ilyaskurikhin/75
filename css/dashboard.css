@@ -69,9 +69,10 @@ body{
 }
 #main{
 	margin-top: 80px;
+	max-width: 100%;
 }
 #karma{
-	max-width: 500px;
+	width: 500px;
 	padding: 0 20px;
 	box-sizing: border-box;
 	margin: 0 auto;
@@ -143,6 +144,7 @@ body{
 	box-sizing: border-box;
 	color: rgb(5, 200, 255);
 	font-size: 20px;
+	transition: background-color 0.2s, color 0.2s;
 }
 #karma .pcheckbox label:after {
 	opacity: 0.2;
@@ -167,7 +169,6 @@ body{
 	border: 3px solid white;
 	border-top: none;
 	border-right: none;
-	opacity: 0.6;
 }
 #karma .pcheckbox input[type=checkbox]:checked + label:after{
 	opacity: 1;
