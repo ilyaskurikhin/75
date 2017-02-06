@@ -1,7 +1,7 @@
 <?php session_start();
 $connection = mysqli_connect("localhost", "moriarty", "mogneHavcocoj", "moriarty_75");
 $aok = true;
-if (isset($_POST)) {
+if (isset($_POST['submit'])) {
 	$username = $_POST['username'];
 	if ($_POST['password'] == $_POST['password2']) {
 		$password = hash('sha256', $_POST['password']);
@@ -44,7 +44,7 @@ if (isset($_POST)) {
 </head>
 <body>
 	<div class="mainbox">
-	  	<h1 class="title">Register</h1>
+	  	<h1 class="title"><img src="img/75.coral.png" alt="75 logo"></h1>
 		<p class="err">
 			<?php
 				if (!$aok) {

@@ -72,13 +72,10 @@ body{
 }
 .reg{
 	color: white;
+	text-align: center;
 }
 .reg a{
-	text-decoration: none;
 	color: white;
-}
-.reg a:hover{
-	text-decoration: underline;
 }
  @media (min-width: 600px) {
 	 .mainbox{

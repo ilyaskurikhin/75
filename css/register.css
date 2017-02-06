@@ -18,6 +18,10 @@ body{
 	margin-top: 0;
 	text-align: center;
 }
+.title img{
+	display: inline-block;
+	height: 100px;
+}
 .mainbox input{
 	box-sizing: border-box;
 	width: 80%;

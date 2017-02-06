@@ -20,10 +20,7 @@
 			}
 			mysqli_stmt_close($stmt);
 			mysqli_close($connection);
-		} else {
-			$aok = false;
-			$err = "Empty input field(s).";
-		}
+		} 
 	}
 ?>
 <!DOCTYPE html>
