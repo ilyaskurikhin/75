@@ -21,9 +21,9 @@ if (isset($_POST['submit'])) {
 		$err = "An account linked to this room number has already been created.";
 	}
 	if($aok){
-		$query = "INSERT INTO main (user, pw, name, roomNumber) VALUES (?,?,?,?)";
+		$query = "INSERT INTO main (roomNumber, user, pw, name) VALUES (?,?,?,?)";
 		$stmt = mysqli_prepare($connection, $query);
-		mysqli_stmt_bind_param($stmt, "sssi", $username, $password, $name, $roomNumber);
+		mysqli_stmt_bind_param($stmt, "isss",  $roomNumber, $username, $password, $name);
 		mysqli_stmt_execute($stmt);
 		$_SESSION['loggedin'] = true;
 		$_SESSION['username'] = $username;
