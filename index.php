@@ -5,7 +5,7 @@
 		if ($_POST['username'] != "" && $_POST['password'] != "") {
 			$username = $_POST['username'];
 			$password = hash('sha256', $_POST['password']);
-			$query = "SELECT users FROM main WHERE users = ? AND pw = ?";
+			$query = "SELECT * FROM main WHERE user = ? AND pw = ?";
 			$stmt = mysqli_prepare($connection, $query);
 			mysqli_stmt_bind_param($stmt, "ss", $username, $password);
 			mysqli_stmt_execute($stmt);
@@ -15,10 +15,14 @@
 				$_SESSION['username'] = $username;
 				header('Location: dashboard.php'); // replace filename with future "home" site
 			} else {
-				echo "Wrong password or username.<br>";
+				$aok = false;
+				$err =  "Wrong password or username.";
 			}
 			mysqli_stmt_close($stmt);
 			mysqli_close($connection);
+		} else {
+			$aok = false;
+			$err = "Empty input field(s).";
 		}
 	}
 ?>
@@ -30,18 +34,27 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<!-- Stylesheet link -->
 	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link rel="stylesheet" type="text/css" href="css/login.css">
 
 	<!-- Scripts -->
 
 </head>
 <body>
 	<div class="mainbox">
-	  	<h1 class="title">Coloc du Mois</h1>
+	  	<h1 class="title"><img src="img/75.teal.png" alt="75 logo"></h1>
+		<p class="err">
+			<?php
+				if (!$aok) {
+					echo $err;
+				}
+			?>
+		</p>
 		<form class="" action="index.php" method="post">
 			<input type="text" name="username" placeholder="username"/>
 		  	<input type="password" name="password" placeholder="password"/>
 		  	<input type="submit" name="submit" value="Login"/>
 		</form>
+		<p class="reg">Or <a href="register.php">register</a></p>
 	</div>
 </body>
 </html>

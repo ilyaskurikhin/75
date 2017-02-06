@@ -1,0 +1,70 @@
+body{
+	background: #222;
+}
+.mainbox{
+	width: 80%;
+	height: 30%;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-left: -40%;
+	margin-top: -25%;
+	font-family: sans-serif;
+	color: rgb(250, 85, 85);
+	padding: 20px 0 20px 0;
+}
+.title{
+	padding: 0;
+	margin-top: 0;
+	text-align: center;
+}
+.mainbox input{
+	box-sizing: border-box;
+	width: 80%;
+	margin: 0;
+	margin-bottom: 5px;
+	margin-left: 10%;
+	outline: none;
+	height: 40px;
+	border-radius: 20px;
+	line-height: 25px;
+	font-size: 20px;
+	padding-left: 20px;
+	padding-right: 20px;
+	border: 1px solid rgb(250, 85, 85);
+	background: transparent;
+	box-sizing: border-box;
+	color: white;
+}
+.mainbox input[type=text]:focus, .mainbox input[type=password]:focus, .mainbox input[type=email]:focus, .mainbox input[type=number]:focus{
+	background: linear-gradient(to right, #ff5555 0%,#f97400 100%);
+	color: white;
+}
+.mainbox input[type=submit]{
+	background: transparent;
+	border: 2px solid rgb(250, 85, 85);
+	color: rgb(250, 85, 85);
+}
+.mainbox input[type=submit]:hover{
+	cursor: pointer;
+	background: linear-gradient(to right, #ff5555 0%,#f97400 100%);
+	color: white;
+}
+::-webkit-input-placeholder {
+	color: #333;
+}
+::-moz-placeholder {
+	color: #333;
+}
+.err{
+	color: red;
+	text-align: center;
+}
+ @media (min-width: 600px) {
+	 .mainbox{
+		width: 350px;
+	 	height: 400px;
+		margin-left: -175px;
+		margin-top: -200px;
+	 }
+ }

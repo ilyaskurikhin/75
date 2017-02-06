@@ -1,6 +1,6 @@
 <?php session_start();
 	$connection = mysqli_connect("localhost", "moriarty", "mogneHavcocoj", "moriarty_75");
-	$query = "SELECT name, points FROM main WHERE users = ?";
+	$query = "SELECT name, points FROM main WHERE user = ?";
 	$stmt = mysqli_prepare($connection, $query);
 	mysqli_stmt_bind_param($stmt, "s", $_SESSION["username"]);
 	mysqli_stmt_execute($stmt);
@@ -16,6 +16,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Dashboard</title>
 		<!-- Stylesheet links-->
+		<link rel="stylesheet" href="css/main.css">
 		<link rel="stylesheet" href="css/dashboard.css">
 		<link rel="stylesheet" href="css/fontawesome/font-awesome.min.css">
 		<!-- Script links-->
