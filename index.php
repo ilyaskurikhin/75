@@ -20,7 +20,7 @@
 			}
 			mysqli_stmt_close($stmt);
 			mysqli_close($connection);
-		} 
+		}
 	}
 ?>
 <!DOCTYPE html>
@@ -51,7 +51,7 @@
 		  	<input type="password" name="password" placeholder="password"/>
 		  	<input type="submit" name="submit" value="Login"/>
 		</form>
-		<p class="reg">Or <a href="register.php">register</a></p>
+		<p class="reg">or <a href="register.php">register</a></p>
 	</div>
 </body>
 </html>

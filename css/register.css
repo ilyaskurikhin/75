@@ -3,14 +3,14 @@ body{
 }
 .mainbox{
 	width: 80%;
-	height: 30%;
+	height: 60%;
 	position: absolute;
 	top: 50%;
 	left: 50%;
 	margin-left: -40%;
-	margin-top: -25%;
+	margin-top: -40%;
 	font-family: sans-serif;
-	color: rgb(250, 85, 85);
+	color: teal;
 	padding: 20px 0 20px 0;
 }
 .title{
