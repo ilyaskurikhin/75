@@ -27,7 +27,7 @@ if (isset($_POST['submit'])) {
 		mysqli_stmt_execute($stmt);
 		$_SESSION['loggedin'] = true;
 		$_SESSION['username'] = $username;
-		header('Location: dashboard.php');
+		//header('Location: dashboard.php');
 	}
 }
 ?>

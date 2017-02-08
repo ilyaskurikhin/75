@@ -14,6 +14,7 @@
 	top: 0;
 	right: 0;
 	padding-right: 20px;
+	min-width: 150px;
 }
 #user:hover{
 	background: rgba(0, 0, 0, 0.3);
@@ -72,7 +73,7 @@
 	box-sizing: border-box;
 	margin: 0 auto;
 }
-#karma input{
+#karma input, #karma button{
 	outline: none;
 	margin: 0;
 	padding: 0;
@@ -80,6 +81,7 @@
 	box-sizing: border-box;
 	margin-bottom: 10px;
 	font-size: 20px;
+	background: transparent;
 	transition: background-color 0.2s, color 0.2s;
 }
 #karma input[type=text]{
@@ -88,7 +90,7 @@
 	border-radius: 30px;
 	padding-left: 20px;
 }
-#karma input[type=submit]{
+#karma button{
 	height: 60px;
 	border-radius: 30px;
 	width: 100%;
@@ -97,9 +99,25 @@
 	color: rgb(5, 200, 255);
 	transition: background-color 0.2s, color 0.2s;
 }
-#karma input[type=submit]:hover{
+#karma button:hover{
 	cursor: pointer;
 	background-color: rgb(5, 200, 255);
+	color: white;
+}
+#karma .success{
+	border-color: rgb(50, 155, 50);
+	color: rgb(50, 155, 50);
+}
+#karma .success:hover{
+	background-color: rgb(50, 155, 50);
+	color: white;
+}
+#karma .fail{
+	border-color: red;
+	color: red;
+}
+#karma .fail:hover{
+	background-color: red;
 	color: white;
 }
 #karma input[type=number]{
@@ -120,51 +138,40 @@
 ::-moz-input-placeholder{
 	color: rgb(5, 200, 255);
 }
-#karma .pcheckbox{
+#karma label{
+	cursor: pointer;
+	position: relative;;
 	width: 150px;
 	height: 60px;
-	position: relative;
+	line-height: 60px;
+	text-align: center;
 	float: right;
-}
-#karma .pcheckbox label {
-	cursor: pointer;
-	position: absolute;
-	width: 100%;
-	height: 60px;
 	background: transparent;
 	border: 2px solid rgb(5, 200, 255);
 	border-radius: 30px;
-	line-height: 55px;
-	padding-left: 60px;
 	box-sizing: border-box;
 	color: rgb(5, 200, 255);
 	font-size: 20px;
 	transition: background-color 0.2s, color 0.2s;
 }
-#karma .pcheckbox label:after {
+#karma label i{
 	opacity: 0.2;
-	content: '';
-	position: absolute;
-	width: 18px;
-	height: 8px;
-	background: transparent;
-	top: 50%;
-	left: 25px;
-	margin-top: -9px;
-	border: 3px solid rgb(5, 200, 255);
-	border-top: none;
-	border-right: none;
-	transform: rotate(-45deg);
 }
-#karma .pcheckbox label:hover{
+#karma label:hover{
 	background-color: rgb(5, 200, 255);
 	color: white;
 }
-#karma .pcheckbox label:hover::after {
-	border: 3px solid white;
-	border-top: none;
-	border-right: none;
+#karma input[type=checkbox]:checked + label{
+	color: green;
+	border: 2px solid rgb(50, 155, 50);
 }
-#karma .pcheckbox input[type=checkbox]:checked + label:after{
+#karma input[type=checkbox]:checked + label i{
 	opacity: 1;
+}
+#karma input[type=checkbox]:checked + label:hover{
+	background-color: rgb(50, 155, 50);
+	color: white;
+}
+#karma .phsvg{
+	border: 1px solid black;
 }

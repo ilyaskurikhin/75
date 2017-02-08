@@ -1,19 +1,26 @@
-<?php session_start();
+<?php
+	session_start();
+	session_regenerate_id(true);
 	$connection = mysqli_connect("localhost", "moriarty", "mogneHavcocoj", "moriarty_75");
 	$_SESSION['loggedIn'] = false;
 	if (isset($_POST)) {
 		if ($_POST['username'] != "" && $_POST['password'] != "") {
-			$username = $_POST['username'];
+			$user = $_POST['username'];
 			$password = hash('sha256', $_POST['password']);
-			$query = "SELECT * FROM main WHERE user = ? AND pw = ?";
+			$query = "SELECT roomNumber, user, name, points FROM main WHERE user = ? AND pw = ?";
 			$stmt = mysqli_prepare($connection, $query);
-			mysqli_stmt_bind_param($stmt, "ss", $username, $password);
+			mysqli_stmt_bind_param($stmt, "ss", $user, $password);
 			mysqli_stmt_execute($stmt);
 			mysqli_stmt_store_result($stmt);
+			mysqli_stmt_bind_result($stmt, $roomNumber, $username, $name, $points);
 			if (mysqli_stmt_num_rows($stmt) == 1) {
-				$_SESSION['loggedin'] = true;
+				mysqli_stmt_fetch($stmt);
+				$_SESSION['loggedIn'] = true;
 				$_SESSION['username'] = $username;
-				header('Location: dashboard.php'); // replace filename with future "home" site
+				$_SESSION['karma'] = $points;
+				$_SESSION['name'] = $name;
+				$_SESSION['roomNumber'] = $roomNumber;
+				header('Location: dashboard.php');
 			} else {
 				$aok = false;
 				$err =  "Wrong password or username.";
