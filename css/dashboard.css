@@ -73,6 +73,17 @@
 	box-sizing: border-box;
 	margin: 0 auto;
 }
+#karma #fuzzy{
+	position: absolute;
+	border-color: transparent;
+	color: rgba(0, 0, 0, 0.3);
+	pointer-events: none;
+	line-height: 60px;
+	box-sizing: border-box;
+	font-size: 20px;
+	outline: none;
+	border: 2px solid transparent;
+}
 #karma input, #karma button{
 	outline: none;
 	margin: 0;
@@ -84,7 +95,7 @@
 	background: transparent;
 	transition: background-color 0.2s, color 0.2s;
 }
-#karma input[type=text]{
+#karma input[type=text], #karma #fuzzy{
 	height: 60px;
 	width: 300px;
 	border-radius: 30px;

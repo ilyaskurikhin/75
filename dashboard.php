@@ -30,6 +30,7 @@
 		</header>
 		<section id="main">
 			<form id="karma" action="dashboard.php" method="post">
+				<div id="fuzzy"></div>
 				<input type="text" name="destination" id="destination" placeholder="user" value="" autocomplete="off">
 				<input type="number" name="karma" placeholder="karma">
 				<input type="text" name="comment" value="" placeholder="comment" autocomplete="off">
@@ -38,6 +39,9 @@
 				<button type="submit" name="ktransfer" id="ktransferbtn"><span>Transfer Karma  </span><i class="fa fa-lg fa-fw fa-exchange"></i></button>
 			</form>
 			<div class="msg"></div>
+		</section>
+		<section id="display">
+			<div id="karmadisplay"><?php echo $_SESSION['karma'];?></div>
 		</section>
 	</body>
 </html>

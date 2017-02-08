@@ -53,6 +53,7 @@
 		mysqli_stmt_bind_param($stmt, "is", $amount, $receiver);
 		mysqli_stmt_execute($stmt);
 		$inv_amount = $amount * -1;
+		$_SESSION['karma'] = $_SESSION['karma'] + $inv_amount;
 		mysqli_stmt_bind_param($stmt, "is", $inv_amount, $sender);
 		mysqli_stmt_execute($stmt);
 		mysqli_stmt_close($stmt);
@@ -61,9 +62,13 @@
 		mysqli_stmt_bind_param($stmt, "ssisi", $sender, $receiver, $amount, $comment, $private);
 		mysqli_stmt_execute($stmt);
 		mysqli_stmt_close($stmt);
-		echo 'Transaction successfull!';
+		$msg = array('message' => 'Transaction successfull!', 'karma' => $_SESSION['karma']);
+		$jsonmsg = json_encode($msg);
+		echo $jsonmsg;
 	} else {
-		echo $err;
+		$msg = array('message' => $err);
+		$jsonmsg = json_encode($msg);
+		echo $jsonmsg;
 	}
 	mysqli_close($connection);
 ?>
