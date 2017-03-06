@@ -63,9 +63,13 @@
 #user:hover #ddmenu{
 	display: block;
 }
-#main{
+section{
 	margin-top: 80px;
 	max-width: 100%;
+	position: relative;
+}
+#transaction{
+
 }
 #karma{
 	width: 500px;
@@ -82,7 +86,8 @@
 	box-sizing: border-box;
 	font-size: 20px;
 	outline: none;
-	border: 2px solid transparent;
+	border-top: 1px solid transparent;
+	border-left: 2px solid transparent;
 }
 #karma input, #karma button{
 	outline: none;
@@ -100,6 +105,7 @@
 	width: 300px;
 	border-radius: 30px;
 	padding-left: 20px;
+	font-family: sans-serif;
 }
 #karma button{
 	height: 60px;
@@ -185,4 +191,61 @@
 }
 #karma .phsvg{
 	border: 1px solid black;
+}
+#karmadisplay{
+	font-size: 100px;
+	height: 200px;
+	width: 200px;
+	border-radius: 50%;
+	box-shadow: inset 0 0 0 5px rgb(210, 245, 255);
+	position: relative;
+	background: white;
+	overflow: hidden;
+	margin: 110px auto 50px auto;
+}
+#display .pointer{
+	width: 100px;
+	height: 100px;
+	position: absolute;
+	transform-origin: 100% 100%;
+}
+#display .pointer1{
+	background-color: #76db99;
+	transform: rotate(90deg) skew(0deg);
+	opacity: 0;
+}
+#display .pointer2{
+	background-color: #76db99;
+	transform: rotate(180deg) skew(0deg);
+	opacity: 0;
+}
+#display .pointer3{
+	background-color: #76db99;
+	transform: rotate(270deg) skew(0deg);
+	opacity: 0;
+}
+#display .pointer4{
+	background-color: #76db99;
+	transform: skew(0deg);
+	opacity: 0;
+}
+#display .cover{
+	position: absolute;
+	width: 190px;
+	height: 190px;
+	border-radius: 50%;
+	top: 5px;
+	left: 5px;
+	background-color: white;
+}
+#karmadisplay p{
+	background: linear-gradient(to right, #05c8ff 0%,#76db99 100%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	margin: 0;
+	line-height: 200px;
+	text-align: center;
+	font-family: 'Fjalla One';
+	position: absolute;
+	width: 100%;
 }

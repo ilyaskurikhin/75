@@ -62,11 +62,11 @@
 		mysqli_stmt_bind_param($stmt, "ssisi", $sender, $receiver, $amount, $comment, $private);
 		mysqli_stmt_execute($stmt);
 		mysqli_stmt_close($stmt);
-		$msg = array('message' => 'Transaction successfull!', 'karma' => $_SESSION['karma']);
+		$msg = array('success' => 'true', 'message' => 'Transaction successfull!', 'points' => $_SESSION['karma']);
 		$jsonmsg = json_encode($msg);
 		echo $jsonmsg;
 	} else {
-		$msg = array('message' => $err);
+		$msg = array('success' => 'false', 'message' => $err);
 		$jsonmsg = json_encode($msg);
 		echo $jsonmsg;
 	}
