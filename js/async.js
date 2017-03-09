@@ -42,6 +42,7 @@ $(document).ready(function() {
 		var update = asyncdata.update;
 		if (update == "true") {
 			var points = asyncdata.points;
+			alert(points);
 			// TODO transaction alert (ex. :"/user/ sent you karma!")
 			display(points);
 		}
