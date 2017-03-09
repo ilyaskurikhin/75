@@ -61,6 +61,7 @@
 
 	// transfer karma after validity check
 	if ($validReciever && $validKarma) {
+		$_SESSION['transferring'] = true;
 		$query = "UPDATE main SET points= points + ? WHERE name=?";
 		$stmt = mysqli_prepare($connection, $query);
 		mysqli_stmt_bind_param($stmt, "is", $amount, $receiver);
@@ -79,6 +80,7 @@
 		$msg = array('success' => 'true', 'message' => $successmsg, 'points' => $_SESSION['karma']);
 		$jsonmsg = json_encode($msg);
 		echo $jsonmsg;
+		$_SESSION['transferring'] = false;
 	} else {
 		$msg = array('success' => 'false', 'message' => $err);
 		$jsonmsg = json_encode($msg);

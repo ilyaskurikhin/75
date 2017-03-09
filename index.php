@@ -20,6 +20,7 @@
 				$_SESSION['karma'] = $points;
 				$_SESSION['name'] = $name;
 				$_SESSION['roomNumber'] = $roomNumber;
+				$_SESSION['transferring'] = false;
 				header('Location: dashboard.php');
 			} else {
 				$aok = false;

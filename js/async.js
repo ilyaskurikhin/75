@@ -11,7 +11,7 @@ $(document).ready(function() {
 		})
 	}, 200);
 
-	// form submit
+	// on form submit
 	$('#karma').submit(function(e){
 		e.preventDefault();
 
@@ -37,6 +37,7 @@ $(document).ready(function() {
 		$(this).children("input").focus().first().focus();
 	});
 
+	// on update
 	function update(asyncdata){
 		var update = asyncdata.update;
 		if (update == "true") {

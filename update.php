@@ -7,7 +7,7 @@
 	mysqli_stmt_execute($stmt);
 	mysqli_stmt_bind_result($stmt, $liveKarma);
 	mysqli_stmt_fetch($stmt);
-	if ($liveKarma !== $_SESSION['karma']) {
+	if ($liveKarma !== $_SESSION['karma'] && !$_SESSION['transferring']) {
 		$_SESSION['karma'] = $liveKarma;
 		$msg = array('update' => 'true', 'points' => $_SESSION['karma']);
 		$jsonmsg = json_encode($msg);
