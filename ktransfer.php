@@ -77,7 +77,7 @@
 		mysqli_stmt_execute($stmt);
 		mysqli_stmt_close($stmt);
 		$successmsg = 'Transaction successfull!';
-		$msg = array('success' => 'true', 'message' => $successmsg, 'points' => $_SESSION['karma']);
+		$msg = array('success' => 'true', 'message' => $successmsg, 'points' => $_SESSION['karma'], 'oldpoints' => $_SESSION['karma'] - $invertedAmount);
 		$jsonmsg = json_encode($msg);
 		echo $jsonmsg;
 		$_SESSION['transferring'] = false;

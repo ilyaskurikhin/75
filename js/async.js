@@ -3,13 +3,13 @@ $(document).ready(function() {
 	circle(parseInt($("#karmadisplay p").html()));
 
 
-	// update tick
+	// update interval
 	setInterval(function(){
 		$.get("update.php", function(res) {
 			res = JSON.parse(res);
 			update(res);
-		})
-	}, 200);
+		});
+	}, 500);
 
 	// on form submit
 	$('#karma').submit(function(e){
@@ -39,12 +39,9 @@ $(document).ready(function() {
 
 	// on update
 	function update(asyncdata){
-		var update = asyncdata.update;
-		if (update == "true") {
-			var points = asyncdata.points;
-			alert(points);
+		if (asyncdata.update == 'true') {
 			// TODO transaction alert (ex. :"/user/ sent you karma!")
-			display(points);
+			display(asyncdata.points, asyncdata.oldpoints);
 		}
 	};
 
@@ -59,7 +56,7 @@ $(document).ready(function() {
 				// change spinner to success
 				$("#ktransferbtn").removeClass().addClass("success");
 				$("#ktransferbtn i").removeClass().addClass("fa fa-lg fa-fw fa fa-check");
-				display(asyncdata.points);
+				display(asyncdata.points, asyncdata.oldpoints);
 			} else {
 				// change spinner to fail
 				$("#ktransferbtn").removeClass().addClass("fail");
@@ -69,9 +66,8 @@ $(document).ready(function() {
 	}
 
 	// karma animations
-	function display (newpoints) {
+	function display (newpoints, oldpoints) {
 		var kdp = $("#karmadisplay p");
-		var oldpoints = kdp.html();
 		var iterator = Math.abs(newpoints - oldpoints);
 		var timing = 1500 / iterator;
 		if (timing < 50) {
@@ -116,7 +112,7 @@ $(document).ready(function() {
 			$('#display .pointer4').css({"opacity": "0", "transform": "skew(0deg)"});
 		}
 		if (karma > max && karma <= (max * 5 / 4)) {
-			var skew = 90 - (3.6 * (karma - max));
+			var skew = 90 - Math.floor(3.6 * (karma - max));
 			$('#display .pointer1').css({
 				"transform": "rotate(90deg) skew(" + skew + "deg)",
 				"background-color": clr,
