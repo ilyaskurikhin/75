@@ -65,9 +65,9 @@
 		$stmt = mysqli_prepare($connection, $query);
 		mysqli_stmt_bind_param($stmt, "is", $amount, $receiver);
 		mysqli_stmt_execute($stmt);
-		$inv_amount = $amount * -1;
-		$_SESSION['karma'] = $_SESSION['karma'] + $inv_amount;
-		mysqli_stmt_bind_param($stmt, "is", $inv_amount, $sender);
+		$invertedAmount = $amount * -1;
+		$_SESSION['karma'] = $_SESSION['karma'] + $invertedAmount;
+		mysqli_stmt_bind_param($stmt, "is", $invertedAmount, $sender);
 		mysqli_stmt_execute($stmt);
 		mysqli_stmt_close($stmt);
 		$query = "INSERT INTO transactions (sender, receiver, amount, comment, private) VALUES (?,?,?,?,?)";

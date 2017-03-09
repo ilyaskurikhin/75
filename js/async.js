@@ -1,39 +1,72 @@
 $(document).ready(function() {
-	// async karma transaction
+	// load circle on pageload
 	circle(parseInt($("#karmadisplay p").html()));
+
+
+	// update tick
+	setInterval(function(){
+		$.get("update.php", function(res) {
+			res = JSON.parse(res);
+			update(res);
+		})
+	}, 200);
+
+	// form submit
 	$('#karma').submit(function(e){
 		e.preventDefault();
+
+		//Spinner animation
 		$("#ktransferbtn span").text("Transferring...  ");
 		$("#ktransferbtn i").removeClass().addClass("fa fa-lg fa-fw fa-spinner fa-spin");
 		var data = $(this).serialize();
+
 		// async request
-		$.post( "ktransfer.php", data, function(res) {
+		$.post("ktransfer.php", data, function(res) {
 			res = JSON.parse(res);
-			var message = res.message;
-			// spinner / checkmark animation and delay
-			setTimeout(function() {
-				$("#ktransferbtn span").text(message + "  ");
-				if (res.success == 'true') {
-					$("#ktransferbtn").removeClass().addClass("success");
-					$("#ktransferbtn i").removeClass().addClass("fa fa-lg fa-fw fa fa-check");
-					display(res.points);
-				} else {
-					$("#ktransferbtn").removeClass().addClass("fail");
-					$("#ktransferbtn i").removeClass().addClass("fa fa-lg fa-fw fa fa-times");
-				}
-			}, 1000 );
+			transaction(res);
 		}).done(function() {
+			// reset submit button style
 			setTimeout(function() {
 				$("#ktransferbtn").removeClass();
 				$("#ktransferbtn i").removeClass().addClass("fa fa-lg fa-fw fa-paper-plane");
 				$("#ktransferbtn span").text("Send Karma  ");
 			}, 2500 );
   		});
-		// clearing resetting focus on form
+		// clearing form & resetting focus
 		$(this).children("input").val("");
 		$(this).children("input").focus().first().focus();
 	});
-	// karma count animation
+
+	function update(asyncdata){
+		var update = asyncdata.update;
+		if (update == "true") {
+			var points = asyncdata.points;
+			// TODO transaction alert (ex. :"/user/ sent you karma!")
+			display(points);
+		}
+	};
+
+	// form animation
+	function transaction(asyncdata) {
+		var message = asyncdata.message;
+
+		// spinner / checkmark animation and delay
+		setTimeout(function() {
+			$("#ktransferbtn span").text(message + "  ");
+			if (asyncdata.success == 'true') {
+				// change spinner to success
+				$("#ktransferbtn").removeClass().addClass("success");
+				$("#ktransferbtn i").removeClass().addClass("fa fa-lg fa-fw fa fa-check");
+				display(asyncdata.points);
+			} else {
+				// change spinner to fail
+				$("#ktransferbtn").removeClass().addClass("fail");
+				$("#ktransferbtn i").removeClass().addClass("fa fa-lg fa-fw fa fa-times");
+			}
+		}, 1000 );
+	}
+
+	// karma animations
 	function display (newpoints) {
 		var kdp = $("#karmadisplay p");
 		var oldpoints = kdp.html();
@@ -56,7 +89,8 @@ $(document).ready(function() {
 			}
 		}
 	};
-	// karma circles setter
+
+	// circle draw animation
 	function circle (karma) {
 		var max = 100;
 		if (karma > max) {
