@@ -1,7 +1,7 @@
 #topbar{
 	width: 100%;
 	height: 60px;
-	background-color: rgb(62, 178, 177);
+	background: linear-gradient(to right, #05c8ff 0%,#76db99 100%);
 	color: white;
 	position: fixed;
 	top: 0;
@@ -41,7 +41,7 @@
 	margin-top: 60px;
 	position: absolute;
 	padding: 0;
-	background-color: rgb(62, 178, 177);
+	background-color: rgb(45, 205, 230);
 }
 .menu{
 	width: 100%;
@@ -64,12 +64,15 @@
 	display: block;
 }
 section{
-	margin-top: 80px;
 	max-width: 100%;
 	position: relative;
+	min-width: 
 }
-#transaction{
 
+/* transaction form section */
+
+#transaction{
+	margin-top: 40px ;
 }
 #karma{
 	width: 500px;
@@ -81,7 +84,7 @@ section{
 	outline: none;
 	margin: 0;
 	padding: 0;
-	border: 2px solid rgb(62, 178, 177);
+	border: 2px solid rgb(45, 205, 230);
 	box-sizing: border-box;
 	margin-bottom: 10px;
 	font-size: 20px;
@@ -94,7 +97,7 @@ section{
 	border-radius: 30px;
 	padding-left: 20px;
 	font-family: sans-serif;
-	color: rgb(62, 178, 177);
+	color: rgb(45, 205, 230);
 }
 #karma #fuzzy{
 	position: absolute;
@@ -114,12 +117,12 @@ section{
 	width: 100%;
 	background-color: transparent;
 	font-size: 20px;
-	color: rgb(62, 178, 177);
+	color: rgb(45, 205, 230);
 	transition: background-color 0.2s, color 0.2s;
 }
 #karma button:hover{
 	cursor: pointer;
-	background-color: rgb(62, 178, 177);
+	background-color: rgb(45, 205, 230);
 	color: white;
 }
 #karma .success{
@@ -151,24 +154,24 @@ section{
 	visibility: hidden;
 }
 ::-webkit-input-placeholder{
-	color: rgb(62, 178, 177);
+	color: rgb(45, 205, 230);
 }
 ::-moz-input-placeholder{
-	color: rgb(62, 178, 177);
+	color: rgb(45, 205, 230);
 }
 #karma label{
 	cursor: pointer;
-	position: relative;;
+	position: relative;
 	width: 150px;
 	height: 60px;
 	line-height: 60px;
 	text-align: center;
 	float: right;
 	background: transparent;
-	border: 2px solid rgb(62, 178, 177);
+	border: 2px solid rgb(45, 205, 230);
 	border-radius: 30px;
 	box-sizing: border-box;
-	color: rgb(62, 178, 177);
+	color: rgb(45, 205, 230);
 	font-size: 20px;
 	transition: background-color 0.2s, color 0.2s;
 }
@@ -176,7 +179,7 @@ section{
 	opacity: 0.2;
 }
 #karma label:hover{
-	background-color: rgb(62, 178, 177);
+	background-color: rgb(45, 205, 230);
 	color: white;
 }
 #karma input[type=checkbox]:checked + label{
@@ -190,50 +193,34 @@ section{
 	background-color: rgb(50, 155, 50);
 	color: white;
 }
-#karma .phsvg{
-	border: 1px solid black;
+
+/* circle display section */
+
+#display{
+	margin-top: 100px;
 }
 #karmadisplay{
 	font-size: 100px;
-	height: 200px;
-	width: 200px;
+	height: 300px;
+	width: 300px;
 	border-radius: 50%;
 	box-shadow: inset 0 0 0 5px rgb(210, 245, 255);
-	position: relative;
 	background: white;
 	overflow: hidden;
-	margin: 110px auto 50px auto;
+	margin: 0 auto;
+	position: relative;
+	z-index: 1;
 }
-#display .pointer{
-	width: 100px;
-	height: 100px;
+#karmadisplay .pointer{
+	width: 150px;
+	height: 150px;
 	position: absolute;
 	transform-origin: 100% 100%;
 }
-#display .pointer1{
-	background-color: #76db99;
-	transform: rotate(90deg) skew(0deg);
-	opacity: 0;
-}
-#display .pointer2{
-	background-color: #76db99;
-	transform: rotate(180deg) skew(0deg);
-	opacity: 0;
-}
-#display .pointer3{
-	background-color: #76db99;
-	transform: rotate(270deg) skew(0deg);
-	opacity: 0;
-}
-#display .pointer4{
-	background-color: #76db99;
-	transform: skew(0deg);
-	opacity: 0;
-}
-#display .cover{
+#karmadisplay .cover{
 	position: absolute;
-	width: 190px;
-	height: 190px;
+	width: 290px;
+	height: 290px;
 	border-radius: 50%;
 	top: 5px;
 	left: 5px;
@@ -244,9 +231,9 @@ section{
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 	margin: 0;
-	line-height: 200px;
+	line-height: 300px;
 	text-align: center;
 	font-family: 'Fjalla One';
-	position: absolute;
 	width: 100%;
+	position: relative;
 }

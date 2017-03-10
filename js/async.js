@@ -2,9 +2,9 @@ $(document).ready(function() {
 	// load circle on pageload
 	circle(parseInt($("#karmadisplay p").html()));
 
-
 	//db connection tick
 	setInterval(function(){
+		// async update request
 		$.get("update.php", function(res) {
 			res = JSON.parse(res);
 			update(res);
@@ -20,7 +20,7 @@ $(document).ready(function() {
 		$("#ktransferbtn i").removeClass().addClass("fa fa-lg fa-fw fa-spinner fa-spin");
 		var data = $(this).serialize();
 
-		// async request
+		// async transaction request
 		$.post("ktransfer.php", data, function(res) {
 			res = JSON.parse(res);
 			transaction(res);
@@ -72,6 +72,8 @@ $(document).ready(function() {
 		var timing = 1500 / iterator;
 		if (timing < 10) {
 			timing = 10;
+		} else if (timing > 500) {
+			timing = 500;
 		}
 		var id = setInterval(count, timing);
   		function count() {
@@ -90,29 +92,37 @@ $(document).ready(function() {
 
 	// circle draw animation
 	function circle (karma) {
+		var green = "rgb(140, 210, 140)";
+		var lightgreen = "rgb(165, 232, 205)";
+		var blue = "rgb(200, 235, 255)";
+		var lightblue = "rgba(210, 245, 255, 0.4)";
+		var shade = "inset 0 0 0 5px ";
+		var clr = lightgreen;
 		var max = 100;
-		if (karma > max) {
-			$("#karmadisplay").css({
-				"box-shadow": "inset 0 0 0 5px rgb(210, 245, 255)"
-			});
-			var clr = "#76db99";
-		} else if (karma < max) {
-			$("#karmadisplay").css({
-				"box-shadow": "inset 0 0 0 5px rgba(210, 245, 255, 0.2)"
-			});
+		if (karma >= max) { // >= 100
+			if (karma >= 2 * max){ // >= 200
+				karma -= max;
+				shade += lightgreen;
+				clr = green;
+			} else {
+				shade += blue;
+			}
+		} else if (karma < max) { // < 100
 			karma += max;
-			var clr = "rgb(210, 245, 255)";
-		} else {
-			$("#karmadisplay").css({
-				"box-shadow": "inset 0 0 0 5px rgb(210, 245, 255)"
-			});
+			shade += lightblue;
+			clr = blue;
+		} else { // 0
+			shade += lightblue;
 			$('#display .pointer1').css({"opacity": "0", "transform": "rotate(90deg) skew(0deg)"});
 			$('#display .pointer2').css({"opacity": "0", "transform": "rotate(180deg) skew(0deg)"});
 			$('#display .pointer3').css({"opacity": "0", "transform": "rotate(270deg) skew(0deg)"});
 			$('#display .pointer4').css({"opacity": "0", "transform": "skew(0deg)"});
 		}
-		if (karma > max && karma <= (max * 5 / 4)) {
-			var skew = 90 - Math.floor(3.6 * (karma - max));
+		$("#karmadisplay").css({
+			"box-shadow": shade
+		});
+		if (karma >= max && karma <= (max * 5 / 4)) {
+			var skew = 90 - (3.6 * (karma - max));
 			$('#display .pointer1').css({
 				"transform": "rotate(90deg) skew(" + skew + "deg)",
 				"background-color": clr,
@@ -168,7 +178,8 @@ $(document).ready(function() {
 			$('#display .pointer3').css({
 				"transform": "rotate(270deg)",
 				"background-color": clr,
-				"opacity": "1"
+				"opacity": "1",
+				"box-shadow": "none"
 			});
 			$('#display .pointer4').css({
 				"transform": "skew(" + skew + "deg)",
