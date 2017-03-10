@@ -11,7 +11,7 @@ body{
 	margin-left: -40%;
 	margin-top: -40%;
 	font-family: sans-serif;
-	color: teal;
+	color: rgb(62, 178, 177);
 	padding: 20px 0 20px 0;
 }
 .title{
@@ -53,12 +53,12 @@ body{
 .mainbox input[type=submit]{
 	background-color: transparent;
 	-webkit-backdrop-filter: blur(5px);
-	box-shadow: inset 0 0 0 2px teal;
-	color: teal;
+	box-shadow: inset 0 0 0 2px rgb(62, 178, 177);
+	color: rgb(62, 178, 177);
 }
 .mainbox input[type=submit]:hover{
 	cursor: pointer;
-	background: teal;
+	background: rgb(62, 178, 177);
 	color: white;
 }
 ::-webkit-input-placeholder {

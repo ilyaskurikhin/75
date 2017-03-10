@@ -10,12 +10,18 @@ $(document).ready(function() {
 	});
 	function fuzzy(query){
 		$.post( "fuzzy.php", {user: query}, function(res) {
-			prop = res;
-			if ($('#destination').val() !== "") {
+			if (res !== ""){
+				prop = res;
+				for (var i = 0; i < query.length; i++) {
+					res = query + res.substring(query.length);
+				}
+			}
+			if (input !== "") {
 				$('#fuzzy').text(res);
 			} else {
-				$('#fuzzy').text("");
+				$('#destination').val("");
 			}
+			$('#fuzzy').text(res);
 		});
 	};
 });

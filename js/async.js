@@ -3,7 +3,7 @@ $(document).ready(function() {
 	circle(parseInt($("#karmadisplay p").html()));
 
 
-	// update interval
+	//db connection tick
 	setInterval(function(){
 		$.get("update.php", function(res) {
 			res = JSON.parse(res);
@@ -70,12 +70,12 @@ $(document).ready(function() {
 		var kdp = $("#karmadisplay p");
 		var iterator = Math.abs(newpoints - oldpoints);
 		var timing = 1500 / iterator;
-		if (timing < 50) {
-			timing = 50;
+		if (timing < 10) {
+			timing = 10;
 		}
 		var id = setInterval(count, timing);
   		function count() {
-			if (oldpoints <= newpoints) {
+			if (oldpoints < newpoints) {
 				oldpoints++;
 			} else {
 				oldpoints--;

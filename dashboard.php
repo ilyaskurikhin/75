@@ -35,6 +35,11 @@ if (!isset($_SESSION['loggedIn'])) {
 				</nav>
 			</div>
 		</header>
+		<div class="banner inactive">
+			<div class="usericon"></div>
+			<p class="message"></p>
+			<div class="cross"></div>
+		</div>
 		<section id="display">
 			<div id="karmadisplay">
 				<div class="pointer pointer1"></div>

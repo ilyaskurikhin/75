@@ -1,7 +1,7 @@
 #topbar{
 	width: 100%;
 	height: 60px;
-	background-color: rgb(5, 200, 255);
+	background-color: rgb(62, 178, 177);
 	color: white;
 	position: fixed;
 	top: 0;
@@ -41,7 +41,7 @@
 	margin-top: 60px;
 	position: absolute;
 	padding: 0;
-	background-color: rgb(5, 200, 255);
+	background-color: rgb(62, 178, 177);
 }
 .menu{
 	width: 100%;
@@ -77,23 +77,11 @@ section{
 	box-sizing: border-box;
 	margin: 0 auto;
 }
-#karma #fuzzy{
-	position: absolute;
-	border-color: transparent;
-	color: rgba(0, 0, 0, 0.3);
-	pointer-events: none;
-	line-height: 60px;
-	box-sizing: border-box;
-	font-size: 20px;
-	outline: none;
-	border-top: 1px solid transparent;
-	border-left: 2px solid transparent;
-}
 #karma input, #karma button{
 	outline: none;
 	margin: 0;
 	padding: 0;
-	border: 2px solid rgb(5, 200, 255);
+	border: 2px solid rgb(62, 178, 177);
 	box-sizing: border-box;
 	margin-bottom: 10px;
 	font-size: 20px;
@@ -106,6 +94,19 @@ section{
 	border-radius: 30px;
 	padding-left: 20px;
 	font-family: sans-serif;
+	color: rgb(62, 178, 177);
+}
+#karma #fuzzy{
+	position: absolute;
+	border-color: transparent;
+	color: rgba(0, 0, 0, 0.3);
+	pointer-events: none;
+	line-height: 60px;
+	box-sizing: border-box;
+	font-size: 20px;
+	outline: none;
+	border-top: 1px solid transparent;
+	border-left: 2px solid transparent;
 }
 #karma button{
 	height: 60px;
@@ -113,12 +114,12 @@ section{
 	width: 100%;
 	background-color: transparent;
 	font-size: 20px;
-	color: rgb(5, 200, 255);
+	color: rgb(62, 178, 177);
 	transition: background-color 0.2s, color 0.2s;
 }
 #karma button:hover{
 	cursor: pointer;
-	background-color: rgb(5, 200, 255);
+	background-color: rgb(62, 178, 177);
 	color: white;
 }
 #karma .success{
@@ -150,10 +151,10 @@ section{
 	visibility: hidden;
 }
 ::-webkit-input-placeholder{
-	color: rgb(5, 200, 255);
+	color: rgb(62, 178, 177);
 }
 ::-moz-input-placeholder{
-	color: rgb(5, 200, 255);
+	color: rgb(62, 178, 177);
 }
 #karma label{
 	cursor: pointer;
@@ -164,10 +165,10 @@ section{
 	text-align: center;
 	float: right;
 	background: transparent;
-	border: 2px solid rgb(5, 200, 255);
+	border: 2px solid rgb(62, 178, 177);
 	border-radius: 30px;
 	box-sizing: border-box;
-	color: rgb(5, 200, 255);
+	color: rgb(62, 178, 177);
 	font-size: 20px;
 	transition: background-color 0.2s, color 0.2s;
 }
@@ -175,7 +176,7 @@ section{
 	opacity: 0.2;
 }
 #karma label:hover{
-	background-color: rgb(5, 200, 255);
+	background-color: rgb(62, 178, 177);
 	color: white;
 }
 #karma input[type=checkbox]:checked + label{
