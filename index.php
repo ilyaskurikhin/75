@@ -5,15 +5,15 @@
 		header('Location: dashboard.php');
 	} else {
 		$_SESSION['loggedIn'] = false;
-	}
+    }
 	$connection = mysqli_connect("localhost", "moriarty", "mogneHavcocoj", "moriarty_75");
 	if (isset($_POST)) {
 		if ($_POST['username'] != "" && $_POST['password'] != "") {
 			$user = $_POST['username'];
 			$password = hash('sha256', $_POST['password']);
-			$query = "SELECT roomNumber, user, name, points FROM main WHERE user = ? AND pw = ?";
+			$query = "SELECT roomNumber, user, name, points FROM main WHERE (user = ? OR name = ?) AND pw = ?";
 			$stmt = mysqli_prepare($connection, $query);
-			mysqli_stmt_bind_param($stmt, "ss", $user, $password);
+			mysqli_stmt_bind_param($stmt, "sss", $user, $user, $password);
 			mysqli_stmt_execute($stmt);
 			mysqli_stmt_store_result($stmt);
 			mysqli_stmt_bind_result($stmt, $roomNumber, $username, $name, $points);
