@@ -1,5 +1,10 @@
-<?php session_start();
-$connection = mysqli_connect("localhost", "moriarty", "mogneHavcocoj", "moriarty_75");
+<?php 
+
+// include local database credentials
+include_once 'includes/psl-config.php';
+
+session_start();
+$connection = mysqli_connect(HOST, USER, PASSWORD, DATABASE);
 $aok = true;
 if (isset($_POST['submit'])) {
 	$username = $_POST['username'];
