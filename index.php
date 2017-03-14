@@ -1,6 +1,6 @@
 <?php
 // include local database credentials
-include_once 'psl-config.php';
+include_once 'includes/psl-config.php';
 
 	session_start();
 	// checking if last session still exists
@@ -9,7 +9,7 @@ include_once 'psl-config.php';
 	} else {
 		$_SESSION['loggedIn'] = false;
 	}
-	$connection = mysqli_connect($HOST, $USER, $PASSWORD, $DATABASE);
+	$connection = mysqli_connect(HOST, USER, PASSWORD, DATABASE);
 	if (isset($_POST)) {
 		if ($_POST['username'] != "" && $_POST['password'] != "") {
 			$user = $_POST['username'];

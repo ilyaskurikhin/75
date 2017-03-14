@@ -1,5 +1,10 @@
-<?php session_start();
-	$connection = mysqli_connect("localhost", "moriarty", "mogneHavcocoj", "moriarty_75");
+<?php 
+
+// include local database credentials
+include_once 'includes/psl-config.php';
+
+session_start();
+        $connection = mysqli_connect(HOST, USER, PASSWORD, DATABASE);
 	$query = "SELECT points FROM main WHERE name=?";
 	$stmt = mysqli_prepare($connection, $query);
 	$self = $_SESSION['name'];

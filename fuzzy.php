@@ -1,6 +1,10 @@
 <?php
-	session_start();
-	$connection = mysqli_connect("localhost", "moriarty", "mogneHavcocoj", "moriarty_75");
+
+// include local database credentials
+include_once 'includes/psl-config.php';
+
+session_start();
+	$connection = mysqli_connect(HOST, USER, PASSWORD, DATABASE);
 	$query = "SELECT name FROM main WHERE name LIKE ?";
 	$stmt = mysqli_prepare($connection, $query);
 	$fuzzy = $_POST['user'] . "%";

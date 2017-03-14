@@ -1,5 +1,5 @@
-kjhjjj<?php session_start();
-if (!isset($_SESSION['loggedIn']dbarefoot o the fgrass listening to ou shelooks perfectI dont deserve tit yo look perfect. tonightlollk-g)) {
+<?php session_start();
+if (!isset($_SESSION['loggedIn'])) {
 	header('Location: index.php');
 }
 ?>
