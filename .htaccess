@@ -1,0 +1,9 @@
+## Enable Mod Rewrite
+RewriteEngline On
+RewriteBase /
+
+## Check if request if for /includes/
+RewriteCond %{THE_REQUEST} ^{A-Z}{3,9}\ /includes/ .*$ [NC]
+
+## Forbid access
+RewriteRule .* - [F,NS,L]
