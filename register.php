@@ -1,4 +1,4 @@
-<?php 
+<?php
 
     // include local database credentials
     include_once 'includes/psl-config.php';

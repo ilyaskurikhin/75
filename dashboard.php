@@ -1,4 +1,4 @@
-<?php 
+<?php
     session_start();
     if (!isset($_SESSION['loggedIn'])) {
         header('Location: index.php');
@@ -21,6 +21,7 @@
         <script type="text/javascript" src="js/jquery2.1.4.min.js"></script>
         <script type="text/javascript" src="js/async.js"></script>
         <script type="text/javascript" src="js/fuzzy.js"></script>
+        <script type="text/javascript" src="js/feed.js"></script>
     </head>
     <body>
         <header id="topbar">

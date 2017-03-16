@@ -1,15 +1,30 @@
 $(document).ready(function() {
-	var isOwnFeed;
+	var isOwnFeed, feed;
 	if ($("#persfeed")) {
-		isOwnFeed = false;
-	} else {
 		isOwnFeed = true;
+        feed = $("#persfeed");
+	} else {
+		isOwnFeed = false;
+        feed = $("#"); // add id of general html timeline element
 	}
 	loadFeed(isOwnFeed);
 
-	function loadFeed(public) {
-		$.post( "feed.php", {public: public}, function(res) {
-
+	function loadFeed(pub) {
+		$.post( "feed.php", {public: pub}, function(res) {
+            res = JSON.parse(res);
+			display(res);
 		});
 	}
+
+    function display(data) {
+        for (var i = 0; i < data.length; i++) {
+            var pub = data[i].public;
+            var subject = data[i].subject;
+            var time = data[i].time;
+            var comment = data[i].comment;
+            var amount = data[i].amount;
+            var line; // create html element
+            // append to parent div
+        }
+    }
 });

@@ -1,9 +1,8 @@
 <?php
-
+    session_start(); // session start has to be the first line in order to work!
+    
     // include local database credentials
     include_once 'includes/psl-config.php';
-
-    session_start();
 
     // checking if last session still exists
     if ($_SESSION['loggedIn']) {

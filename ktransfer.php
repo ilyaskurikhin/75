@@ -1,9 +1,9 @@
 <?php
+    session_start(); // session start has to be the first line in order to work!
 
     // include local database credentials
     include_once 'includes/psl-config.php';
-
-    session_start();
+    
     $connection = mysqli_connect(HOST, USER, PASSWORD, DATABASE);
     $sender = $_SESSION['name'];
     $fuzzyReceiver = $_POST['destination'];
@@ -38,19 +38,19 @@
     if ($amount < 0 && $validReciever){
         $query = "SELECT amount FROM transactions WHERE sender=? AND receiver=?";
         $stmt = mysqli_prepare($connection, $query);
-        
+
         mysqli_stmt_bind_param($stmt, "ss", $sender, $receiver);
         mysqli_stmt_execute($stmt);
         mysqli_stmt_store_result($stmt);
         mysqli_stmt_bind_result($stmt, $transferred);
-        
+
         if (mysqli_stmt_num_rows($stmt) > 0) {
             $maxDroppable = 0;
-            
+
             while (mysqli_stmt_fetch($stmt)) {
                 $maxDroppable += $transferred;
             }
-            
+
             if ($amount < 0 && ($maxDroppable + $amount) < 0) {
                 $validKarma = false;
                 $err = "You can't take away karma you didn't give.";
@@ -77,28 +77,28 @@
         $_SESSION['transferring'] = true;
         $query = "UPDATE main SET points= points + ? WHERE name=?";
         $stmt = mysqli_prepare($connection, $query);
-        
+
         mysqli_stmt_bind_param($stmt, "is", $amount, $receiver);
         mysqli_stmt_execute($stmt);
-        
+
         $invertedAmount = $amount * -1;
         $_SESSION['karma'] = $_SESSION['karma'] + $invertedAmount;
-        
+
         mysqli_stmt_bind_param($stmt, "is", $invertedAmount, $sender);
         mysqli_stmt_execute($stmt);
         mysqli_stmt_close($stmt);
-        
+
         $query = "INSERT INTO transactions (sender, receiver, amount, comment, private) VALUES (?,?,?,?,?)";
         $stmt = mysqli_prepare($connection, $query);
-        
+
         mysqli_stmt_bind_param($stmt, "ssisi", $sender, $receiver,
                                $amount, $comment, $private);
         mysqli_stmt_execute($stmt);
         mysqli_stmt_close($stmt);
-        
+
         $successmsg = 'Transaction successfull!';
-        $msg = array('success' => 'true', 'message' => $successmsg, 
-                     'points' => $_SESSION['karma'], 
+        $msg = array('success' => 'true', 'message' => $successmsg,
+                     'points' => $_SESSION['karma'],
                      'oldpoints' => $_SESSION['karma'] - $invertedAmount);
         $jsonmsg = json_encode($msg);
         echo $jsonmsg;

@@ -1,9 +1,9 @@
 <?php
+    session_start(); // session start has to be the first line in order to work!
 
     // include local database credentials
     include_once 'includes/psl-config.php';
 
-    session_start();
     $connection = mysqli_connect(HOST, USER, PASSWORD, DATABASE);
     $query = "SELECT name FROM main WHERE name LIKE ?";
     $stmt = mysqli_prepare($connection, $query);
