@@ -64,5 +64,9 @@
             </form>
             <div class="msg"></div>
         </section>
+        <section id="feed">
+            <div id="persfeed">
+            </div>
+        </section>
     </body>
 </html>

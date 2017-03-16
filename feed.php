@@ -9,10 +9,11 @@
     $query = "SELECT * FROM transactions";
 
     if (!$public) {
-        $query .= " WHERE (sender = ? OR reciever = ?)";
+        $query .= " WHERE (sender = ? OR reciever = ?) ORDER BY timestamp DESC";
         $stmt = mysqli_prepare($connection, $query);
         mysqli_stmt_bind_param($stmt, "ss", $self, $self);
     } else {
+        $query .= " ORDER BY timestamp DESC";
         $stmt = mysqli_prepare($connection, $query);
     }
 
@@ -38,7 +39,7 @@
         $res = array('public' => $public, 'subject' => $subject, 'time' => $time, 'comment' => $comment, 'amount' => $amount);
         $line[] = $res;
     }
-    $jsonline = json_encode($line)
+    $jsonline = json_encode($line);
     echo $jsonline;
     mysqli_stmt_close($stmt);
     mysqli_close($connection);

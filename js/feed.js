@@ -1,6 +1,6 @@
 $(document).ready(function() {
 	var isOwnFeed, feed;
-	if ($("#persfeed")) {
+	if ($("#persfeed").length) {
 		isOwnFeed = true;
         feed = $("#persfeed");
 	} else {
@@ -23,8 +23,12 @@ $(document).ready(function() {
             var time = data[i].time;
             var comment = data[i].comment;
             var amount = data[i].amount;
-            var line; // create html element
-            // append to parent div
+            var line = $("<div class='line'>")
+                .append(("<div class='circle'></div>")
+                .append("<div class='circle'></div>")
+                .append("<div class='circle'></div>"));
+            $("#feed").append(line);
+            //line.appendTo(feed)// append to parent div
         }
     }
 });
