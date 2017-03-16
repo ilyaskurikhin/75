@@ -1,13 +1,13 @@
 $(document).ready(function() {
-	var isOwnFeed, feed;
-	if ($("#persfeed").length) {
-		isOwnFeed = true;
-        feed = $("#persfeed");
+	var pubFeed, feed;
+	if ($("#persFeed").length) {
+		pubFeed = false;
+        feed = $("#persFeed");
 	} else {
-		isOwnFeed = false;
+		pubFeed = true;
         feed = $("#"); // add id of general html timeline element
 	}
-	loadFeed(isOwnFeed);
+	loadFeed(pubFeed);
 
 	function loadFeed(pub) {
 		$.post( "feed.php", {public: pub}, function(res) {
@@ -18,17 +18,20 @@ $(document).ready(function() {
 
     function display(data) {
         for (var i = 0; i < data.length; i++) {
-            var pub = data[i].public;
-            var subject = data[i].subject;
+            var subject = "<div class='name'>" + data[i].subject + "</div>";
             var time = data[i].time;
-            var comment = data[i].comment;
-            var amount = data[i].amount;
+            var comment = "<div class='comment'>" + data[i].comment + "</div>";
+            if (data[i].amount > 0) {
+                var amount = "<div class='points pos'>" + data[i].amount + "</div>";
+            } else {
+                var amount = "<div class='points neg'>" + data[i].amount + "</div>";
+            }
             var line = $("<div class='line'>")
-                .append(("<div class='circle'></div>")
-                .append("<div class='circle'></div>")
-                .append("<div class='circle'></div>"));
-            $("#feed").append(line);
-            //line.appendTo(feed)// append to parent div
+                .append("<div class='circle'>")
+                .append(subject)
+                .append(comment)
+                .append(amount);
+            feed.append(line);
         }
     }
 });

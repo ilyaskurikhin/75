@@ -8,12 +8,12 @@
     $public = $_POST['public'];
     $query = "SELECT * FROM transactions";
 
-    if (!$public) {
-        $query .= " WHERE (sender = ? OR reciever = ?) ORDER BY timestamp DESC";
+    if ($public == "false") {
+        $query .= " WHERE (sender = ? OR receiver = ?) ORDER BY timestamp DESC LIMIT 5";
         $stmt = mysqli_prepare($connection, $query);
         mysqli_stmt_bind_param($stmt, "ss", $self, $self);
     } else {
-        $query .= " ORDER BY timestamp DESC";
+        $query .= " ORDER BY timestamp DESC LIMIT 5";
         $stmt = mysqli_prepare($connection, $query);
     }
 
@@ -23,18 +23,17 @@
     $line = array();
 
     while (mysqli_stmt_fetch($stmt)) {
-        if (!$public) {
+        if ($public == "false") {
             if ($sender == $self) {
                 $subject = "To " . $reciever;
             } else {
                 $subject = "From " . $sender;
             }
-
-            if ($private) {
-                $comment = "private comment";
-            }
         } else {
             $subject = $sender . " to " . $reciever;
+        }
+        if ($private) {
+            $comment = "private comment";
         }
         $res = array('public' => $public, 'subject' => $subject, 'time' => $time, 'comment' => $comment, 'amount' => $amount);
         $line[] = $res;

@@ -42,31 +42,33 @@
                 <p class="message"></p>
             <div class="cross"></div>
         </div>
-        <section id="display">
-            <div id="karmadisplay">
-                <div class="pointer pointer1"></div>
-                <div class="pointer pointer2"></div>
-                <div class="pointer pointer3"></div>
-                <div class="pointer pointer4"></div>
-                <div class="cover"></div>
-                <p><?php echo $_SESSION['karma'];?></p>
+        <section id="first">
+            <div id="display">
+                <div id="karmadisplay">
+                    <div class="pointer pointer1"></div>
+                    <div class="pointer pointer2"></div>
+                    <div class="pointer pointer3"></div>
+                    <div class="pointer pointer4"></div>
+                    <div class="cover"></div>
+                    <p><?php echo $_SESSION['karma'];?></p>
+                </div>
+            </div>
+            <div id="transaction">
+                <form id="karma" action="dashboard.php" method="post">
+                    <div id="fuzzy"></div>
+                    <input type="text" name="destination" id="destination" placeholder="user" value="" autocomplete="off">
+                    <input type="number" name="karma" placeholder="karma">
+                    <input type="text" name="comment" value="" placeholder="comment" autocomplete="off">
+                    <input type="checkbox" name="private" id="private" value="1">
+                    <label for="private"><i class="fa fa-check fa-fw"></i>  private</label>
+                    <button type="submit" name="ktransfer" id="ktransferbtn"><span>Send Karma  </span><i class="fa fa-lg fa-fw fa-paper-plane"></i></button>
+                </form>
+                <div class="msg"></div>
             </div>
         </section>
-        <section id="transaction">
-            <form id="karma" action="dashboard.php" method="post">
-                <div id="fuzzy"></div>
-                <input type="text" name="destination" id="destination" placeholder="user" value="" autocomplete="off">
-                <input type="number" name="karma" placeholder="karma">
-                <input type="text" name="comment" value="" placeholder="comment" autocomplete="off">
-                <input type="checkbox" name="private" id="private" value="1">
-                <label for="private"><i class="fa fa-check fa-fw"></i>  private</label>
-                <button type="submit" name="ktransfer" id="ktransferbtn"><span>Send Karma  </span><i class="fa fa-lg fa-fw fa-paper-plane"></i></button>
-            </form>
-            <div class="msg"></div>
-        </section>
-        <section id="feed">
-            <div id="persfeed">
-            </div>
+        <section id="second">
+            <h1 class="title">Latest transactions</h1>
+            <div id="persFeed"></div>
         </section>
     </body>
 </html>

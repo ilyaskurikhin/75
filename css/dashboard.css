@@ -66,13 +66,15 @@
 section{
 	max-width: 100%;
 	position: relative;
-	min-width: 600px;
+	min-width: 50%;
+    float: left;
+    margin-top: 100px;
 }
 
-/* transaction form section */
+/* transaction form part */
 
 #transaction{
-	margin-top: 40px ;
+	margin-top: 40px;
 }
 #karma{
 	width: 500px;
@@ -194,10 +196,9 @@ section{
 	color: white;
 }
 
-/* circle display section */
+/* circle display part */
 
-#display{
-	margin-top: 100px;
+#first{
 }
 #karmadisplay{
 	font-size: 100px;
@@ -236,4 +237,67 @@ section{
 	font-family: 'Fjalla One';
 	width: 100%;
 	position: relative;
+}
+
+/* feed section */
+
+.title{
+    width: 460px;
+    position: relative;
+    margin: 0 auto;
+    padding: 0;
+    color: rgb(45, 205, 230);
+    font-size: 25px;
+}
+#persFeed{
+  width: 460px;
+  position: relative;
+  margin: 10px auto;
+}
+#persFeed .line{
+  width: 100%;
+  height: 80px;
+  overflow: hidden;
+  position: relative;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 7px 0;
+  border-radius: 10px;
+  border: 2px solid rgb(45, 205, 230);
+  color: rgb(45, 205, 230);
+}
+#persFeed .circle{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid rgb(45, 205, 230);
+  position: absolute;
+  top: 15px;
+  left: 15px;
+}
+#persFeed .name{
+  position: absolute;
+  border-radius: 4px;
+  left: 80px;
+  top: 15px;
+}
+#persFeed .comment{
+  border-radius: 4px;
+  position: absolute;
+  top: 35px;
+  left: 80px;
+}
+#persFeed .points{
+  position: absolute;
+  right: 20px;
+  top: 0;
+  height: 80px;
+  line-height: 80px;
+  font-size: 25px;
+}
+#persFeed .pos {
+  color: #6EC86E;
+}
+#persFeed .neg {
+  color: #C84646;
 }
