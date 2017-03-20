@@ -13,7 +13,7 @@
         $stmt = mysqli_prepare($connection, $query);
         mysqli_stmt_bind_param($stmt, "ss", $self, $self);
     } else {
-        $query .= " ORDER BY timestamp DESC LIMIT 5";
+        $query .= " ORDER BY timestamp DESC LIMIT 15";
         $stmt = mysqli_prepare($connection, $query);
     }
 
