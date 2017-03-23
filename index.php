@@ -1,6 +1,6 @@
 <?php
     session_start(); // session start has to be the first line in order to work!
-    
+
     // include local database credentials
     include_once 'includes/psl-config.php';
 
@@ -49,7 +49,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- Stylesheet link -->
-        <link rel="stylesheet" type="text/css" href="css/main.css">
+        <link rel="stylesheet" type="text/css" href="css/reset.css">
         <link rel="stylesheet" type="text/css" href="css/login.css">
 
         <!-- Scripts -->

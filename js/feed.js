@@ -6,7 +6,7 @@ $(document).ready(function() {
         feedType = smallFeed;
 	} else {
 		pubFeed = true;
-        feed = $("#mainfeed"); // add id of general html timeline element
+        feed = $("#timeline"); // add id of general html timeline element
         feedType = bigFeed;
 	}
 	loadFeed(pubFeed, feedType);
@@ -21,10 +21,14 @@ $(document).ready(function() {
     function smallFeed(data) {
         for (var i = 0; i < data.length; i++) {
             var subject = "<div class='name'>" + data[i].subject + "</div>";
-            var comment = "<div class='comment'>" + data[i].comment + "</div>";
+            var commenttext = data[i].comment;
+            if (commenttext == "") {
+                commenttext = "no comment";
+            }
+            var comment = "<div class='comment'>" + commenttext + "</div>";
             var sqltimestamp = data[i].time;
-            var timestamp = time.substr(0, 10).split(/[-]/);
-            var datestring = sqltimestamp.join('-');
+            var timestamp = sqltimestamp.substr(0, 10).split(/[-]/);
+            var datestring = timestamp.join('-');
             var date = new Date(datestring);
             var formatteddate = date.getDate() + "/" + (date.getMonth() + 1);
             var time = "<div class='timestamp'>" + formatteddate + "</div>";
@@ -47,7 +51,11 @@ $(document).ready(function() {
         for (var i = 0; i < data.length; i++) {
             var subject = "<div class='name'>" + data[i].subject + "</div>";
             var time = data[i].time;
-            var comment = "<div class='comment'>" + data[i].comment + "</div>";
+            var commenttext = data[i].comment;
+            if (commenttext == "") {
+                commenttext = "no comment";
+            }
+            var comment = "<div class='comment'>" + commenttext + "</div>";
             if (data[i].amount > 0) {
                 var amount = "<div class='points pos'>" + data[i].amount + "</div>";
             } else {
@@ -55,6 +63,7 @@ $(document).ready(function() {
             }
             var line = $("<div class='line'>")
                 .append("<div class='circle'>")
+                .append("<div class='circle2'>")
                 .append(subject)
                 .append(comment)
                 .append(amount);

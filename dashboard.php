@@ -11,6 +11,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Dashboard</title>
         <!-- Stylesheet links -->
+        <link rel="stylesheet" href="css/reset.css">
         <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href="css/dashboard.css">
         <!-- FontAwesome-->
@@ -31,6 +32,7 @@
                 <nav id="ddmenu">
                     <li class="menu"><a href=""><i class="fa fa-user-o fa-fw fa-lg"></i> Profile</a></li>
                     <li class="menu"><a href=""><i class="fa fa-home fa-fw fa-lg"></i> Dashboard</a></li>
+                    <li class="menu"><a href="timeline.php"><i class="fa fa-globe fa-fw fa-lg"></i> Timeline</a></li>
                     <li class="menu"><a href=""><i class="fa fa-trophy fa-fw fa-lg"></i> Ranking</a></li>
                     <li class="menu"><a href=""><i class="fa fa-cog fa-fw fa-lg"></i> Settings</a></li>
                     <li class="menu"><a href="logout.php"><i class="fa fa-sign-out fa-fw fa-lg"></i> Log out</a></li>
@@ -69,7 +71,7 @@
         <section id="second">
             <h1 class="title">Latest transactions</h1>
             <div id="persFeed"></div>
-            <h2 class="footnote"><a href="#">See all transactions</a></h2>
+            <h2 class="footnote"><a href="timeline.php">See all transactions</a></h2>
         </section>
     </body>
 </html>

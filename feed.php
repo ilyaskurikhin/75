@@ -13,7 +13,7 @@
         $stmt = mysqli_prepare($connection, $query);
         mysqli_stmt_bind_param($stmt, "ss", $self, $self);
     } else {
-        $query .= " ORDER BY timestamp DESC LIMIT 15";
+        $query .= " ORDER BY timestamp DESC LIMIT 30";
         $stmt = mysqli_prepare($connection, $query);
     }
 
@@ -30,10 +30,10 @@
                 $subject = "From " . $sender;
             }
         } else {
-            $subject = $sender . " to " . $reciever;
+            $subject = $sender . "<br>to<br>" . $reciever;
         }
         if ($private) {
-            $comment = "private comment";
+            $comment = "<i class='fa fa-lock fa-fw fa-lg'></i> private comment";
         }
         $res = array('public' => $public, 'subject' => $subject, 'time' => $time, 'comment' => $comment, 'amount' => $amount);
         $line[] = $res;
