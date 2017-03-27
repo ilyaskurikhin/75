@@ -20,6 +20,7 @@
         <link href="https://fonts.googleapis.com/css?family=Fjalla+One" rel="stylesheet">
         <!-- Script links -->
         <script type="text/javascript" src="js/jquery2.1.4.min.js"></script>
+        <script type="text/javascript" src="js/menu.js"></script>
         <script type="text/javascript" src="js/async.js"></script>
         <script type="text/javascript" src="js/fuzzy.js"></script>
         <script type="text/javascript" src="js/feed.js"></script>
@@ -29,7 +30,7 @@
             <div id="user">
                 <p class="username"><?php echo $_SESSION['name']; ?></p>
                 <div class="userimg"><img src=""></div>
-                <nav id="ddmenu">
+                <nav id="ddmenu" class="hidden">
                     <li class="menu"><a href=""><i class="fa fa-user-o fa-fw fa-lg"></i> Profile</a></li>
                     <li class="menu"><a href=""><i class="fa fa-home fa-fw fa-lg"></i> Dashboard</a></li>
                     <li class="menu"><a href="timeline.php"><i class="fa fa-globe fa-fw fa-lg"></i> Timeline</a></li>
@@ -44,34 +45,36 @@
                 <p class="message"></p>
             <div class="cross"></div>
         </div>
-        <section id="first">
-            <div id="display">
-                <div id="karmadisplay">
-                    <div class="pointer pointer1"></div>
-                    <div class="pointer pointer2"></div>
-                    <div class="pointer pointer3"></div>
-                    <div class="pointer pointer4"></div>
-                    <div class="cover"></div>
-                    <p><?php echo $_SESSION['karma'];?></p>
+        <div id="scontainer">
+            <section id="first">
+                <div id="display">
+                    <div id="karmadisplay">
+                        <div class="pointer pointer1"></div>
+                        <div class="pointer pointer2"></div>
+                        <div class="pointer pointer3"></div>
+                        <div class="pointer pointer4"></div>
+                        <div class="cover"></div>
+                        <p><?php echo $_SESSION['karma'];?></p>
+                    </div>
                 </div>
-            </div>
-            <div id="transaction">
-                <form id="karma" action="dashboard.php" method="post">
-                    <div id="fuzzy"></div>
-                    <input type="text" name="destination" id="destination" placeholder="user" value="" autocomplete="off">
-                    <input type="number" name="karma" placeholder="karma">
-                    <input type="text" name="comment" value="" placeholder="comment" autocomplete="off">
-                    <input type="checkbox" name="private" id="private" value="1">
-                    <label for="private"><i class="fa fa-check fa-fw"></i>  private</label>
-                    <button type="submit" name="ktransfer" id="ktransferbtn"><span>Send Karma  </span><i class="fa fa-lg fa-fw fa-paper-plane"></i></button>
-                </form>
-                <div class="msg"></div>
-            </div>
-        </section>
-        <section id="second">
-            <h1 class="title">Latest transactions</h1>
-            <div id="persFeed"></div>
-            <h2 class="footnote"><a href="timeline.php">See all transactions</a></h2>
-        </section>
+                <div id="transaction">
+                    <form id="karma" action="dashboard.php" method="post">
+                        <div id="fuzzy"></div>
+                        <input type="text" name="destination" id="destination" placeholder="user" value="" autocomplete="off">
+                        <input type="number" name="karma" placeholder="karma">
+                        <input type="text" name="comment" value="" placeholder="comment" autocomplete="off">
+                        <input type="checkbox" name="private" id="private" value="1">
+                        <label for="private"><i class="fa fa-check fa-fw"></i>  private</label>
+                        <button type="submit" name="ktransfer" id="ktransferbtn"><span>Send Karma  </span><i class="fa fa-lg fa-fw fa-paper-plane"></i></button>
+                    </form>
+                    <div class="msg"></div>
+                </div>
+            </section>
+            <section id="second">
+                <h1 class="title">Your latest transactions</h1>
+                <div id="persFeed"></div>
+                <h2 class="footnote"><a href="timeline.php">See all transactions</a></h2>
+            </section>
+        </div>
     </body>
 </html>

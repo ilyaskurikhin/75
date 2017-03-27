@@ -78,11 +78,11 @@ body{
 .reg a{
 	color: white;
 }
- @media (min-width: 600px) {
-	 .mainbox{
-		width: 350px;
-	 	height: 300px;
-		margin-left: -175px;
-		margin-top: -150px;
-	 }
- }
+@media (min-width: 600px) {
+    .mainbox{
+    width: 350px;
+    height: 300px;
+    margin-left: -175px;
+    margin-top: -150px;
+    }
+}

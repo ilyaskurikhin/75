@@ -29,11 +29,18 @@
             } else {
                 $subject = "From " . $sender;
             }
+            if ($private) {
+                $comment = "<i class='fa fa-unlock-alt fa-fw fa-lg'></i> " . $comment;
+            }
         } else {
             $subject = $sender . "<br>to<br>" . $reciever;
-        }
-        if ($private) {
-            $comment = "<i class='fa fa-lock fa-fw fa-lg'></i> private comment";
+            if ($private) {
+                if ($sender == $self || $reciever == $self) {
+                    $comment = "<i class='fa fa-unlock-alt fa-fw fa-lg'></i> " . $comment;
+                } else {
+                    $comment = "<i class='fa fa-lock fa-fw fa-lg'></i> private comment";
+                }
+            }
         }
         $res = array('public' => $public, 'subject' => $subject, 'time' => $time, 'comment' => $comment, 'amount' => $amount);
         $line[] = $res;

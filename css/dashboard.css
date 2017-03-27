@@ -1,9 +1,16 @@
-section{
-	max-width: 100%;
+#scontainer{
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+#scontainer section{
 	position: relative;
-	min-width: 50%;
-    float: left;
-    margin-top: 100px;
+    margin: 100px auto 0 auto;
 }
 
 /* transaction form part */
@@ -12,27 +19,29 @@ section{
 	margin-top: 40px;
 }
 #karma{
-	width: 500px;
-	padding: 0 20px;
+	min-width: 360px;
+    max-width: 500px;
+	padding: 0 10px;
 	box-sizing: border-box;
 	margin: 0 auto;
 }
 #karma input, #karma button{
 	outline: none;
-	margin: 0;
+	margin: 0 0 10px 0;
 	padding: 0;
 	border: 2px solid rgb(45, 205, 230);
 	box-sizing: border-box;
-	margin-bottom: 10px;
+    box-shadow: none;
+    -webkit-appearance: none;
 	font-size: 20px;
 	background: transparent;
 	transition: background-color 0.2s, color 0.2s;
 }
 #karma input[type=text], #karma #fuzzy{
 	height: 60px;
-	width: 300px;
+	width: 60%;
 	border-radius: 30px;
-	padding-left: 20px;
+	padding-left: 15px;
 	font-family: sans-serif;
 	color: rgb(45, 205, 230);
 }
@@ -45,8 +54,8 @@ section{
 	box-sizing: border-box;
 	font-size: 20px;
 	outline: none;
-	border-top: 1px solid transparent;
 	border-left: 2px solid transparent;
+    border-top: 1px solid transparent;
 }
 #karma button{
 	height: 60px;
@@ -80,15 +89,12 @@ section{
 }
 #karma input[type=number]{
 	height: 60px;
-	width: 150px;
+	max-width: 38%;
 	border-radius: 30px;
 	padding: 0 20px;
-	float: right;
 }
 #karma input[type=checkbox] {
-	width: 0;
-	height: 0;
-	visibility: hidden;
+	display: none;
 }
 ::-webkit-input-placeholder{
 	color: rgb(45, 205, 230);
@@ -99,11 +105,11 @@ section{
 #karma label{
 	cursor: pointer;
 	position: relative;
-	width: 150px;
+    display: inline-block;
+	width: 38%;
 	height: 60px;
 	line-height: 60px;
 	text-align: center;
-	float: right;
 	background: transparent;
 	border: 2px solid rgb(45, 205, 230);
 	border-radius: 30px;
@@ -133,8 +139,10 @@ section{
 
 /* circle display part */
 
-#first{
+#display{
+    max-width: 500px;
 }
+
 #karmadisplay{
 	font-size: 100px;
 	height: 300px;
@@ -143,9 +151,9 @@ section{
 	box-shadow: inset 0 0 0 5px rgb(210, 245, 255);
 	background: white;
 	overflow: hidden;
-	margin: 0 auto;
-	position: relative;
+    position: relative;
 	z-index: 1;
+    margin: 0 auto;
 }
 #karmadisplay .pointer{
 	width: 150px;
@@ -176,49 +184,47 @@ section{
 
 /* feed section */
 
-.title{
-    width: 460px;
+.title, .footnote{
     position: relative;
-    margin: 0 auto;
-    padding: 0;
     color: rgb(45, 205, 230);
     font-size: 25px;
 }
 #persFeed{
-  width: 460px;
-  position: relative;
-  margin: 10px auto;
+    position: relative;
+    margin: 10px auto;
+    min-width: 350px;
+    max-width: 500px;
 }
 #persFeed .line{
-  width: 100%;
-  height: 80px;
-  overflow: hidden;
-  position: relative;
-  margin: 7px 0;
-  border-radius: 10px;
-  border: 2px solid rgb(45, 205, 230);
-  color: rgb(45, 205, 230);
+    width: 100%;
+    height: 80px;
+    overflow: hidden;
+    position: relative;
+    margin: 7px 0;
+    color: rgb(45, 205, 230);
+    border-radius: 10px;
+    border: 2px solid rgb(45, 205, 230);
 }
 #persFeed .circle{
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  border: 2px solid rgb(45, 205, 230);
-  position: absolute;
-  top: 14px;
-  left: 15px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid rgb(45, 205, 230);
+    position: absolute;
+    top: 14px;
+    left: 15px;
 }
 #persFeed .name{
-  position: absolute;
-  border-radius: 4px;
-  left: 80px;
-  top: 15px;
+    position: absolute;
+    border-radius: 4px;
+    left: 80px;
+    top: 15px;
 }
 #persFeed .comment{
-  border-radius: 4px;
-  position: absolute;
-  top: 35px;
-  left: 80px;
+    border-radius: 4px;
+    position: absolute;
+    top: 35px;
+    left: 80px;
 }
 #persFeed .timestamp{
     position: absolute;
@@ -229,16 +235,32 @@ section{
 }
 
 #persFeed .points{
-  position: absolute;
-  right: 20px;
-  top: 0;
-  height: 80px;
-  line-height: 80px;
-  font-size: 25px;
+    position: absolute;
+    right: 20px;
+    top: 0;
+    height: 80px;
+    line-height: 80px;
+    font-size: 25px;
 }
 #persFeed .pos {
-  color: #6EC86E;
+    color: #6EC86E;
 }
 #persFeed .neg {
-  color: #C84646;
+    color: #C84646;
+}
+
+
+
+@media (min-width: 600px) {
+    section{
+        max-width: 500px;
+        margin: 100px auto 0 auto;
+    }
+    #karma{
+    	min-width: 500px;
+        padding: 0 20px;
+    }
+    #persFeed{
+        min-width: 480px;
+    }
 }

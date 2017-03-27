@@ -25,7 +25,7 @@ $(document).ready(function() {
             if (commenttext == "") {
                 commenttext = "no comment";
             }
-            var comment = "<div class='comment'>" + commenttext + "</div>";
+            var comment = "<div class='comment'><p>" + commenttext + "</p></div>";
             var sqltimestamp = data[i].time;
             var timestamp = sqltimestamp.substr(0, 10).split(/[-]/);
             var datestring = timestamp.join('-');
@@ -55,7 +55,7 @@ $(document).ready(function() {
             if (commenttext == "") {
                 commenttext = "no comment";
             }
-            var comment = "<div class='comment'>" + commenttext + "</div>";
+            var comment = "<div class='comment'><p>" + commenttext + "</p></div>";
             if (data[i].amount > 0) {
                 var amount = "<div class='points pos'>" + data[i].amount + "</div>";
             } else {

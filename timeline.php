@@ -20,6 +20,7 @@
         <link href="https://fonts.googleapis.com/css?family=Fjalla+One" rel="stylesheet">
         <!-- Script links -->
         <script type="text/javascript" src="js/jquery2.1.4.min.js"></script>
+        <script type="text/javascript" src="js/menu.js"></script>
         <script type="text/javascript" src="js/feed.js"></script>
     </head>
     <body>
@@ -27,7 +28,7 @@
             <div id="user">
                 <p class="username"><?php echo $_SESSION['name']; ?></p>
                 <div class="userimg"><img src=""></div>
-                <nav id="ddmenu">
+                <nav id="ddmenu" class="hidden">
                     <li class="menu"><a href=""><i class="fa fa-user-o fa-fw fa-lg"></i> Profile</a></li>
                     <li class="menu"><a href="dashboard.php"><i class="fa fa-home fa-fw fa-lg"></i> Dashboard</a></li>
                     <li class="menu"><a href=""><i class="fa fa-globe fa-fw fa-lg"></i> Timeline</a></li>

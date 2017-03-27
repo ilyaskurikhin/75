@@ -1,8 +1,9 @@
 #timeline{
     position: relative;
-    width: 600px;
+    width: 350px;
     margin: 60px auto 0 auto;
-    padding-top: 60px;
+    padding: 100px 30px;
+    box-sizing: border-box;
 }
 #timeline:before{
     position: absolute;
@@ -11,14 +12,15 @@
     width: 8px;
     height: 100%;
     top: 0;
-    left: 50%;
+    left: 30px;
     margin-left: -4px;
-    background-color: #4FD2CB;
+    background-color: #32CDF5;
 }
 .line{
     position: relative;
     width: 300px;
-    min-height: 80px;
+    min-height: 150px;
+    margin-left: 30px;
     display: inline-block;
     box-sizing: border-box;
 }
@@ -26,11 +28,12 @@
     position: absolute;
     content: '';
     top: 13px;
+    left: -44px;
     display: block;
     width: 16px;
     height: 16px;
     background: white;
-    border: 6px solid #4FD2CB;
+    border: 6px solid #32CDF5;
     border-radius: 50%;
     z-index: 1;
 }
@@ -39,106 +42,162 @@
     content: '';
     display: block;
     top: 25px;
+    left: -20px;
     height: 4px;
-    width: 48px;
-    background: #4FD2CB;
+    width: 20px;
+    background: #32CDF5;
     z-index: 1;
-}
-.line:nth-child(odd){
-    left: 50%;
-}
-.line:nth-child(even){
-    margin-right: 300px;
-    text-align: right;
-}
-.line:nth-child(odd):before{
-    left: -14px;
-}
-.line:nth-child(even):before{
-    right: -14px;
-}
-.line:nth-child(odd):after{
-    left: 8px;
-}
-.line:nth-child(even):after{
-    right: 8px;
 }
 .circle, .circle2{
     position: absolute;
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    border: 2px solid #4FD2CB;
+    border: 2px solid #32CDF5;
 }
-.line:nth-child(odd) .circle{
-    left: 55px;
-}
-.line:nth-child(odd) .circle2{
-    left: 95px;
-}
-.line:nth-child(even) .circle{
-    right: 55px;
-}
-.line:nth-child(even) .circle2{
-    right: 95px;
+.circle2{
+    left: 40px;
 }
 .name, .comment, .points{
     position: absolute;
 }
 .name{
     line-height: 20px;
+    left: 105px;
 }
 .points{
     top: 55px;
     font-size: 25px;
+    left: 35px;
 }
 .comment{
+    box-sizing: border-box;
     top: -35px;
     color: white;
     height: 30px;
+    min-width: 70px;
+    max-width: 280px;
     border-radius: 15px;
-    background-color: #4FD2CB;
+    background-color: #32CDF5;
     line-height: 30px;
     padding: 0 15px;
+}
+.comment p{
+    white-space: nowrap;
+    overflow: scroll;
+    margin: 0;
+}
+.comment p::-webkit-scrollbar {
+    display: none;
 }
 .comment:after{
     content: '';
     position: absolute;
     border-style: solid;
     border-width: 10px 10px 0;
-    border-color: #4FD2CB transparent;
+    border-color: #32CDF5 transparent;
     display: block;
     width: 0;
     z-index: 1;
     bottom: -10px;
-}
-.line:nth-child(odd) .name{
-    left: 160px;
-}
-.line:nth-child(odd) .comment{
-    left: 45px;
-}
-.line:nth-child(odd) .comment:after{
-    left: 25px;
-}
-.line:nth-child(odd) .points{
-    left: 90px;
-}
-.line:nth-child(even) .name{
-    right: 160px;
-}
-.line:nth-child(even) .comment{
-    right: 45px;
-}
-.line:nth-child(even) .comment:after{
-    right: 70px;
-}
-.line:nth-child(even) .points{
-    right: 90px;
 }
 .pos {
   color: #6EC86E;
 }
 .neg {
   color: #C84646;
+}
+
+
+@media (min-width: 600px) {
+    #timeline:before{
+        left: 50%;
+    }
+    #timeline{
+        width: 600px;
+        padding: 100px 0;
+    }
+    #timeline:before{
+        background-color: #4FD2CB;
+    }
+    .line{
+        margin: 0;
+        min-height: 80px;
+    }
+    .line:before{
+        border: 6px solid #4FD2CB;
+    }
+    .line:after{
+        width: 48px;
+        background: #4FD2CB;
+    }
+    .circle, .circle2{
+        border: 2px solid #4FD2CB;
+    }
+    .comment{
+        background-color: #4FD2CB;
+    }
+    .comment:after{
+        border-color: #4FD2CB transparent;
+    }
+    .line:nth-child(odd){
+        left: 50%;
+    }
+    .line:nth-child(even){
+        margin-right: 300px;
+        text-align: right;
+    }
+    .line:nth-child(odd):before{
+        left: -14px;
+    }
+    .line:nth-child(even):before{
+        right: -14px;
+        left: auto;
+    }
+    .line:nth-child(odd):after{
+        left: 8px;
+    }
+    .line:nth-child(even):after{
+        right: 8px;
+        left: auto;
+    }
+    .line:nth-child(odd) .circle{
+        left: 55px;
+    }
+    .line:nth-child(odd) .circle2{
+        left: 95px;
+    }
+    .line:nth-child(even) .circle{
+        right: 55px;
+    }
+    .line:nth-child(even) .circle2{
+        right: 95px;
+    }
+    .line:nth-child(odd) .name{
+        left: 160px;
+    }
+    .line:nth-child(odd) .comment{
+        left: 45px;
+    }
+    .line:nth-child(odd) .comment:after{
+        left: 25px;
+    }
+    .line:nth-child(odd) .points{
+        left: 90px;
+    }
+    .line:nth-child(even) .name{
+        right: 160px;
+    }
+    .line:nth-child(even) .comment{
+        right: 45px;
+    }
+    .line:nth-child(even) .comment:after{
+        right: 70px;
+    }
+    .line:nth-child(even) .points{
+        right: 90px;
+    }
+    .line:nth-child(even) *{
+        left: auto;
+    }
 }
