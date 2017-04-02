@@ -34,7 +34,7 @@
                     <li class="menu"><a href=""><i class="fa fa-user-o fa-fw fa-lg"></i> Profile</a></li>
                     <li class="menu"><a href=""><i class="fa fa-home fa-fw fa-lg"></i> Dashboard</a></li>
                     <li class="menu"><a href="timeline.php"><i class="fa fa-globe fa-fw fa-lg"></i> Timeline</a></li>
-                    <li class="menu"><a href=""><i class="fa fa-trophy fa-fw fa-lg"></i> Ranking</a></li>
+                    <li class="menu"><a href="ranking.php"><i class="fa fa-trophy fa-fw fa-lg"></i> Ranking</a></li>
                     <li class="menu"><a href=""><i class="fa fa-cog fa-fw fa-lg"></i> Settings</a></li>
                     <li class="menu"><a href="logout.php"><i class="fa fa-sign-out fa-fw fa-lg"></i> Log out</a></li>
                 </nav>

@@ -1,5 +1,5 @@
 <?php
-    session_start(); // session start has to be the first line in order to work!
+    session_start();
 
     // include local database credentials
     include_once 'includes/psl-config.php';
@@ -20,15 +20,12 @@
     if ($liveKarma !== $loadedKarma && !$_SESSION['transferring']) {
         $_SESSION['karma'] = $liveKarma;
         $msg = array('update' => 'true', 'points' => $liveKarma, 'oldpoints' => $loadedKarma);
-        $jsonmsg = json_encode($msg);
-        echo $jsonmsg;
     } else {
         $_SESSION['karma'] = $liveKarma;
         $msg = array('update' => 'false');
-        $jsonmsg = json_encode($msg);
-        echo $jsonmsg;
     }
-
     mysqli_stmt_close($stmt);
     mysqli_close($connection);
+    $jsonmsg = json_encode($msg);
+    echo $jsonmsg;
 ?>
